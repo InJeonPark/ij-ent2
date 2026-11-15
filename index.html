@@ -7,6 +7,37 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 </script>
+  /* 기본 */
+<script>
+  // 1. 마우스 우클릭 차단
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  }, false);
+
+  // 2. 소스보기, 개발자 도구, 저장 관련 단축키 차단
+  document.addEventListener('keydown', function(e) {
+    // F12 키 차단
+    if (e.key === 'F12' || e.keyCode === 123) {
+      e.preventDefault();
+      return false;
+    }
+    // Ctrl + Shift + I / J / C (개발자 도구 및 요소 검사)
+    if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C' || e.keyCode === 73 || e.keyCode === 74 || e.keyCode === 67)) {
+      e.preventDefault();
+      return false;
+    }
+    // Ctrl + U (소스 보기), Ctrl + S (저장)
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.keyCode === 85 || e.keyCode === 83)) {
+      e.preventDefault();
+      return false;
+    }
+  }, false);
+
+  // 3. 텍스트 드래그 및 복사 차단 (CSS로도 제어 가능)
+  document.addEventListener('selectstart', function(e) {
+    e.preventDefault();
+  }, false);
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>IT CEO 보안점검툴 - ISMS-P & 컴플라이언스 통합 관제 (불펌 금지) </title>
